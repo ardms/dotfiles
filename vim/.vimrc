@@ -1,240 +1,287 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
- 
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
- 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
+"Use Vim settings, rather than Vi settings
 set nocompatible
- 
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-"  filetype indent plugin on
+filetype off
 
-"-------------------------------------------------------------
-" VUNDLE relatred section
-filetype off 
- 
-" Enable syntax highlighting
-syntax on
- 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"----------------------------------------------------------
+" GENERAL
+"----------------------------------------------------------
+" Do not keep any history
+set viminfo='0,:0,<0,@0,f0
+set nobackup
+set nowb
+set noswapfile
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" mouse support 
+set mouse=a
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+" clipboard support
+set clipboard+=unnamedplus
 
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-" Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'Valloric/YouCompleteMe'
+" Disable bells
+set noerrorbells
+set visualbell
+set t_vb=
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-"------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
- 
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
-set hidden
- 
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
- 
-" Better command-line completion
-set wildmenu
- 
-" Show partial commands in the last line of the screen
-set showcmd
- 
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
-set hlsearch
-
-" UTF-8 support
-set encoding=utf-8
- 
-" Modelines have historically been a source of security vulnerabilities. As
-" such, it may be a good idea to disable them and use the securemodelines
-" script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
- 
-"Backup options
-set backup 
-set backupdir=/tmp/vim/
-set dir=/tmp/vim
- 
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
-
-"COLOSHEME 
-colorscheme kuroi
-
-" Use case insensitive search, except when using capital letters
+" Ignore case when searching
 set ignorecase
 set smartcase
- 
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
- 
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
- 
-" Stop certain movements from always going to the first character of a line.
-" While this behaviour deviates from that of Vi, it does what most users
-" coming from other editors would expect.
-set nostartofline
- 
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
+
+" Set working directory same as file being edited
+" set autochdir
+
+" Needed for Deopleete and relavant plugins
+set encoding=utf-8
+set pyxversion=3
+
+" Set , as the leader key
+let mapleader = ","
+
+" Add all directories under current directory recursively 
+set path=.,,**
+
+" Open splits on the right instead of the left
+set splitright
+
+"----------------------------------------------------------
+" Terminal mode mappings  
+"----------------------------------------------------------
+tnoremap <Esc> <C-\><C-n>
+
+"----------------------------------------------------------
+" Plugin Managment 
+"----------------------------------------------------------
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('\Users\Aris.Dimopoulus/bin/nvim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'Shougo/ddc.vim'
+"Plug 'vim-denops/denops.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplestion from memory
+Plug 'davidhalter/jedi-vim' " Autocomplestion for Python
+" Plug 'Valloric/YouCompleteMe' " Autocomplestion for Python second option
+Plug 'ayu-theme/ayu-vim' " colorscheme 
+" Plug 'plasticboy/vim-markdown'
+Plug 'Yggdroot/indentLine' " displaying thin vertical lines at each indentation level
+Plug 'pangloss/vim-javascript' " Nice formating for Javascript files use <Ctr> x for autocompletion
+Plug 'valloric/MatchTagAlways' " highlight Matching HTML Tags
+
+" Initialize plugin system
+call plug#end()
+
+
+"----------------------------------------------------------
+" LOOK AND FELL 
+"----------------------------------------------------------
+" Set the colorscheme and window transparency
+colorscheme gruvbox
+" set termguicolors
+" let ayucolor="mirage"
+" colorscheme ayu
+
+" Show matching bracets
+set showmatch
+
+" Show ruler and command visual aid
 set ruler
- 
-" Always display the status line, even if only one window is displayed
-set laststatus=2
- 
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-set confirm
- 
-" Use visual bell instead of beeping when doing something wrong
-set visualbell
- 
-" And reset the terminal code for the visual bell. If visualbell is set, and
-" this line is also included, vim will neither flash nor beep. If visualbell
-" is unset, this does nothing.
-set t_vb=
- 
-" Enable use of the mouse for all modes
-set mouse=a
- 
-" Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
-set cmdheight=2
- 
-" Display line numbers on the left
-set number
- 
-" Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
- 
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
- 
- 
-"------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
- 
-" Indentation settings for using 4 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
+set showcmd
+
+" Highlight the cursor line
+set cursorline
+
+" Show line number and listchars
+set list
+set nu
+
+" Define statusline theme 
+let g:airline_theme='angr'
+let g:airline_powerline_fonts = 1
+
+" hi TabLineSel ctermfg=7 ctermbg=3
+" hi TabLine ctermfg=7 ctermbg=6
+
+" Vertical like at column 80
+set colorcolumn=80
+
+" Spesifics for indentLine plugin
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_setColors = 0
+set lcs+=space:·
+
+" This is spesific for the MatchTagAlways plugin
+" will allow the pluin to work in all tose file types
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript' : 1,
+    \}
+
+"-----------------------------------------------------------
+" Python spesific PEP8 indentation
+"-----------------------------------------------------------
+set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+"set textwidth=79
 set expandtab
- 
-" Enable folding 
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
+"set autoindent
+"set fileformat=unix
 
-" Add the proper PEP 8 indentation
-au BufNewFile,BufRead *.py
-    \ set tabstop=4|
-    \ set softtabstop=4|
-    \ set shiftwidth=4|
-    \ set textwidth=79|
-    \ set expandtab|
-    \ set autoindent|
-    \ set fileformat=unix
+let g:python3_host_prog = 'C:\Users\Aris.Dimopoulus\Anaconda3\envs\venv_382\python.exe'
 
-" Indentation for html, js, and css files. 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2|
-    \ set softtabstop=2|
-    \ set shiftwidth=2
+let g:pymode_python = 'python3'
 
-" Flag unnecessary whitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"let g:ale_python_flake8_executable = 'python3'
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+" Keep the sign gutter open at all times
+let g:ale_sign_column_always = 1
 
-"------------------------------------------------------------
-" Mappings {{{1
-"
-" Useful mappings
- 
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
-map Y y$
- 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
- 
-colo darkblue
+" Disable Python 2 support 
+"let g:loaded_python_provider = 0
 
-" remap control C to copy to clipboard 
-vnoremap <C-c> "*y 
+"-----------------------------------------------------------
+" Python autocomplete 
+"-----------------------------------------------------------
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
-"python with virtualenv support
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
-EOF
+" For deoplete use TAB to switch between options
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
-"------------------------------------------------------------
-" PLUGIN options {{{1
+" Atempts to make jedi plygin faster
+let g:pymode_rope=0
+let g:pymode_folding=0
+let g:jedi#environment_path='C:\Users\Aris.Dimopoulus\Anaconda3\envs\venv_382\python.exe'
+" Disable opening documentation window when autocompleting with jedi
+set completeopt-=preview
+" Disable popup window with option and arguments when autocompleting
+let g:jedi#show_call_signatures=0
+let g:jedi#use_splits_not_buffers="right"
 
-" YouComplete
-" ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition.
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"------------------------------------------------------------------------------
+" Status line configuration 
+"------------------------------------------------------------------------------
+" format markers:
+"   %t File name (tail) of file in the buffer
+"   %m Modified flag, text is " [+]"; " [-]" if 'modifiable' is off.
+"   %r Readonly flag, text is " [RO]".
+"   %y Type of file in the buffer, e.g., " [vim]".
+"   %= Separation point between left and right aligned items.
+"   %l Line number.
+"   %L Number of lines in buffer.
+"   %c Column number.
+"   %P percentage through buffer
+set statusline=%{toupper(mode())}\|\ \~%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ (%P)
+set laststatus=2
+" change highlighting based on mode
+if version >= 700
+  highlight statusLine cterm=bold ctermfg=7  ctermbg=3
+  au InsertLeave * highlight StatusLine cterm=bold ctermfg=7 ctermbg=3
+  au InsertEnter * highlight StatusLine cterm=bold ctermfg=7 ctermbg=6
+endif
 
-let python_highlight_all=1
+"------------------------------------------------------------------------------
+" Change the color of the line numbers when in Incert mode 
+"------------------------------------------------------------------------------
+" Default Colors for CursorLine and Cursor
+" highlight  CursorLine ctermfg=7  ctermbg=grey
 
-"------------------------------------------------------------
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLineNr cterm=bold ctermfg=6
 
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLineNr cterm=bold ctermfg=None
+
+"------------------------------------------------------------------------------
+" General Snippets 
+"------------------------------------------------------------------------------
+"Add Python hidder every time a new python file is cretaed
+autocmd BufNewFile *.py -1r C:\Users\Aris.Dimopoulus\bin\nvim\Python_File_header.txt
+
+" Add comment section every time you type <leader>pc
+nnoremap <leader>pc :-1read C:\Users\Aris.Dimopoulus\bin\nvim\Python_comment.txt<CR>jla
+
+"----------------------------------------------------------
+" This litle snipet found in stackoverflow will create a 
+" nice looking tabline with the addition of a + if changes
+" have been made to the file
+"----------------------------------------------------------
+set tabline=%!MyTabLine()  " custom tab pages line
+function! MyTabLine()
+  let s = ''
+  " loop through each tab page
+  for i in range(tabpagenr('$'))
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#' " WildMenu
+    else
+      let s .= '%#Title#'
+    endif
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T '
+    " set page number string
+    let s .= i + 1 . ''
+    " get buffer names and statuses
+    let n = ''  " temp str for buf names
+    let m = 0   " &modified counter
+    let buflist = tabpagebuflist(i + 1)
+    " loop through each buffer in a tab
+    for b in buflist
+      if getbufvar(b, "&buftype") == 'help'
+        " let n .= '[H]' . fnamemodify(bufname(b), ':t:s/.txt$//')
+      elseif getbufvar(b, "&buftype") == 'quickfix'
+        " let n .= '[Q]'
+      elseif getbufvar(b, "&modifiable")
+        let n .= fnamemodify(bufname(b), ':t') . ', ' " pathshorten(bufname(b))
+      endif
+      if getbufvar(b, "&modified")
+        let m += 1
+      endif
+    endfor
+    " let n .= fnamemodify(bufname(buflist[tabpagewinnr(i + 1) - 1]), ':t')
+    let n = substitute(n, ', $', '', '')
+    " add modified label
+    if m > 0
+      let s .= '+'
+      " let s .= '[' . m . '+]'
+    endif
+    if i + 1 == tabpagenr()
+      let s .= ' %#TabLineSel#'
+    else
+      let s .= ' %#TabLine#'
+    endif
+    " add buffer names
+    if n == ''
+      let s.= '[New]'
+    else
+      let s .= n
+    endif
+    " switch to no underlining and add final space
+    let s .= ' '
+  endfor
+  let s .= '%#TabLineFill#%T'
+  " right-aligned close button
+  " if tabpagenr('$') > 1
+  "   let s .= '%=%#TabLineFill#%999Xclose'
+  " endif
+  return s
+endfunction
