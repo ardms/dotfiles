@@ -1,0 +1,15 @@
+-- local api = vim.api
+-- 
+-- api.nvim_create_augroup("auto_add_date", {
+--   clear = true
+-- })
+-- 
+-- api.nvim_create_autocmd({"BufWrite"}, {
+--     pattern = { "*.md" },
+--     callback = function()
+--         vim.cmd'normal 4ggdd'
+--         api.nvim_buf_set_text(0,3,0,3,0, { "lastmod: " .. os.date("%Y-%m-%d-T%H:%M:%S") })
+--         -- api.nvim_buf_set_text(0,3,0,3,0, {"lastmod: "})
+--     end,
+--     group = "auto_add_date",
+-- })
