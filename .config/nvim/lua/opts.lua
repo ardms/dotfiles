@@ -88,7 +88,8 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    -- lualine_c = {'filename'},
+    lualine_c = {'%f'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -137,4 +138,15 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-------------------------------------------------------------------------------
+-- statusline/winbar component that uses LSP to show your current code context
+-------------------------------------------------------------------------------
+-- local navic = require("nvim-navic")
+-- 
+-- require("lspconfig").clangd.setup {
+--     on_attach = function(client, bufnr)
+--         navic.attach(client, bufnr)
+--     end
+-- }
 

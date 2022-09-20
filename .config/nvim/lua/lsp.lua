@@ -1,14 +1,17 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local navic = require("nvim-navic")
 
 -- Conect to the server
 require'lspconfig'.pyright.setup{
     capabilities = capabilities,
-    on_attach = function()
+    on_attach = function(client, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0})
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer = 0})
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer = 0})
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer = 0})
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer = 0})
+    -- navic.attach(client, bufnr)
     end,
 }
 

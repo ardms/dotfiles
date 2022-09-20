@@ -21,6 +21,11 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip' -- Lua completion
 
+   use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+   }
+
   -- STATUS LINE
   use 'nvim-lualine/lualine.nvim'
 
