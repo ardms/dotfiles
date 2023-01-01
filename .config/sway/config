@@ -100,6 +100,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    
+    # Volume controls
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 #
 # Moving around:
 #
@@ -220,6 +226,11 @@ exec nm-applet --indicator
 
 ### Look and Feel
 
+# Change brightness
+bindsym --locked XF86MonBrightnessUp exec light -A 10
+bindsym --locked XF86MonBrightnessDown exec light -U 10
+
+# Change color of the screen from day to night 
 exec gammastep -l 55.94:-3.20
 
 # i3-gaps

@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "network", "custom/powermenu"],
+    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "battery#bat2", "network", "custom/powermenu"],
     "sway/mode": {
         "format": " {}"
     },
@@ -14,16 +14,16 @@
         "disable-markup": false,
         "format": "{icon}",
         "format-icons": {
-            "1": "1 <span font='Font Awesome 5 Free 14'></span>",
-            "2": "2 <span font='Font Awesome 5 Free 14'></span>",
-            "3": "3 <span font='Font Awesome 5 Free 14'></span>",
-            "4": "4 <span font='Font Awesome 5 Free 14'></span>",
-            "5": "5 <span font='Font Awesome 5 Free 14'></span>",
-            "6": "6 <span font='Font Awesome 5 Free 14'></span>",
-            "7": "7 <span font='Font Awesome 5 Free 14'></span>",
-            "8": "8 <span font='Font Awesome 5 Free 14'></span>",
-            "9": "9 <span font='Font Awesome 5 Free 14'></span>",
-            "10": "0 <span font='Font Awesome 5 Free 14'></span>"
+            "1": "1 <span font='Font Awesome 5 Free 9'></span>",
+            "2": "2 <span font='Font Awesome 5 Free 9'></span>",
+            "3": "3 <span font='Font Awesome 5 Free 9'></span>",
+            "4": "4 <span font='Font Awesome 5 Free 9'></span>",
+            "5": "5 <span font='Font Awesome 5 Free 9'></span>",
+            "6": "6 <span font='Font Awesome 5 Free 9'></span>",
+            "7": "7 <span font='Font Awesome 5 Free 9'></span>",
+            "8": "8 <span font='Font Awesome 5 Free 9'></span>",
+            "9": "9 <span font='Font Awesome 5 Free 9'></span>",
+            "10": "0 <span font='Font Awesome 5 Free 9'></span>"
         }
     },
     "tray": {
@@ -68,6 +68,21 @@
         "on-click": "killall -s SIGINT wf-recorder"
 	},
     "battery": {
+        "bat": "BAT0",
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%{time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": " ({H}h{M}m)",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 15,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "battery#bat2": {
+        "bat": "BAT1",
         "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%{time}",
         "format-icons": ["", "", "", "", ""],
         "format-time": " ({H}h{M}m)",
