@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "battery#bat2", "network", "custom/powermenu"],
+    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "battery#bat2", "network", "sway/language", "custom/powermenu"],
     "sway/mode": {
         "format": " {}"
     },
@@ -66,7 +66,10 @@
 		"exec-if": "pgrep wf-recorder",
         "tooltip": false,
         "on-click": "killall -s SIGINT wf-recorder"
-	},
+    },
+    "sway/language": {
+    	"format": "-- {short}",
+    },
     "battery": {
         "bat": "BAT0",
         "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%{time}",
@@ -104,6 +107,7 @@
         "format-disconnected": "⚠ Disconnected",
         "tooltip": false
     },
+    
     "pulseaudio": {
         "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
         "format-alt": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
@@ -126,7 +130,7 @@
         "on-scroll-down": "light -U 1"
     },
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 75,
         "interval": 5,
         "format": "{icon} {temperatureC}°",
@@ -138,5 +142,5 @@
             "", // Icon: temperature-three-quarters
             ""  // Icon: temperature-full
         ]
-    }
+    } 
 }

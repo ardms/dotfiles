@@ -10,7 +10,7 @@
 set $mod Mod4
 # Keymap configuration. By default this is US QWERTY
 input "type:keyboard" {
-	xkb_layout gb 
+	xkb_layout gb,gr
 	xkb_options grp:alt_shift_toggle
 	}
 #input *{
@@ -40,7 +40,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Downloads/wallpapers/moving-castle.jpg fill
 #
 # Example configuration:
 #
@@ -99,7 +99,8 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec wlogout
     
     # Volume controls
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
