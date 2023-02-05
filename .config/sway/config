@@ -76,9 +76,11 @@ output * bg ~/Downloads/wallpapers/moving-castle.jpg fill
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
-#
+
+#-------------------------------------------------------------------
 # Basics:
-#
+#-------------------------------------------------------------------
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -107,9 +109,11 @@ output * bg ~/Downloads/wallpapers/moving-castle.jpg fill
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-#
+
+#-------------------------------------------------------------------
 # Moving around:
-#
+#-------------------------------------------------------------------
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -131,9 +135,11 @@ output * bg ~/Downloads/wallpapers/moving-castle.jpg fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
+#-------------------------------------------------------------------
 # Workspaces:
-#
+#-------------------------------------------------------------------
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -220,12 +226,26 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#-------------------------------------------------------------------
 ### Network Manager applet 
+#-------------------------------------------------------------------
 # nm-applet 
 
 exec nm-applet --indicator
 
+#-------------------------------------------------------------------
 ### Look and Feel
+#-------------------------------------------------------------------
+
+# GTK themes
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Sweet'
+    # gsettings set $gnome-schema icon-theme 'Sweet'
+    # gsettings set $gnome-schema cursor-theme 'Sweet'
+    # gsettings set $gnome-schema font-name 'Sweet'
+}
 
 # Change brightness
 bindsym --locked XF86MonBrightnessUp exec light -A 10
@@ -253,24 +273,6 @@ set $focus-text-color    #87CEEB
 set $black       #282828
 set $darkblack   #1d2021
 set $transparent #000000AA
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-# 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-# 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
 
 bar {
   swaybar_command waybar

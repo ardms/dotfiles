@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "battery#bat2", "network", "sway/language", "custom/powermenu"],
+    "modules-right": ["tray", "pulseaudio", "backlight", "cpu", "memory", "disk", "battery", "battery#bat2", "network", "sway/language"],
     "sway/mode": {
         "format": " {}"
     },
@@ -37,7 +37,8 @@
     },
     "clock": {
         "format": "{:%a %d %b - %H:%M}",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "gsimplecal"
     },
     "cpu": {
         "interval": 5,
@@ -48,6 +49,11 @@
         "interval": 15,
         "format": "<span font='Font Awesome 5 Free 9'>︁</span> {used:0.1f}G/{total:0.1f}G",
         "tooltip": false
+    },
+    "disk": {
+    	"interval": 30,
+	"format": "{used}/{total}",
+	"path": "/"
     },
     "custom/powermenu": {
         "return-type": "json",
@@ -68,7 +74,7 @@
         "on-click": "killall -s SIGINT wf-recorder"
     },
     "sway/language": {
-    	"format": "-- {short}",
+	"format": "-- {short}",
     },
     "battery": {
         "bat": "BAT0",
