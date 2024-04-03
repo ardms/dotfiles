@@ -116,7 +116,7 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Aliases
 
-alias vim='~/bin/nvim/nvim-linux64/bin/nvim'
+alias vim='/opt/nvim-linux64/bin/nvim'
 alias py_venv_392='source ~/venv/py_392/bin/activate'
 . "$HOME/.cargo/env"
 alias feh='feh --scale-down'
