@@ -79,7 +79,7 @@
     "battery": {
         "bat": "BAT0",
         "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%{time}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [" ", " ", " ", " ", " "],
         "format-time": " ({H}h{M}m)",
         "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
         "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
@@ -93,7 +93,7 @@
     "battery#bat2": {
         "bat": "BAT1",
         "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%{time}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [" ", " ", " ", " ", " "],
         "format-time": " ({H}h{M}m)",
         "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
         "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
