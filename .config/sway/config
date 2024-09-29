@@ -76,6 +76,11 @@ output * bg ~/Pictures/wallpapers/12060.jpg fill
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
+#-------------------------------------------------------------------
+# Execute on startup:
+#-------------------------------------------------------------------
+exec ~/bin/kdrive/kDrive-3.6.4.20240814-amd64.AppImage
+
 
 #-------------------------------------------------------------------
 # Basics:
