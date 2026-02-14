@@ -1,35 +1,67 @@
+/* Wofi - Gruvbox Material Elegant */
+
 window {
-margin: 0px;
-border: 1px solid #bd93f9;
-background-color: #282a36;
-font-family: Cousine Nerd Font;
-}
-
-#input {
-margin: 5px;
-border: none;
-color: #f8f8f2;
-background-color: #44475a;
-}
-
-#inner-box {
-margin: 5px;
-border: none;
-background-color: #282a36;
+    margin: 5px;
+    border: 2px solid #a89984; /* Subtle border to define the window */
+    background-color: #282828;
+    font-family: "JetBrains Mono";
+    font-size: 11px;
+    border-radius: 12px;
 }
 
 #outer-box {
-margin: 5px;
-border: none;
-background-color: #282a36;
+    margin: 15px;
+    border: none;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    color: #ebdbb2;
+    background-color: #3c3836; /* Slightly lighter background for the search bar */
+}
+
+#scroll {
+    margin: 5px;
+    border: none;
 }
 
 #text {
-margin: 5px;
-border: none;
-color: #f8f8f2;
-} 
+    margin: 5px;
+    border: none;
+    color: #ebdbb2;
+}
 
+/* This is the magic: The selection highlight */
 #entry:selected {
-background-color: #44475a;
+    background-color: #504945; /* Dark gray highlight */
+    border-radius: 8px;
+    outline: none;
+}
+
+#text:selected {
+    color: #8ec07c; /* Aqua/Green text when selected to match your Waybar colors */
+    font-weight: bold;
+}
+
+#img {
+    margin-right: 10px; /* Space between icon and text */
+    width: 16px;        /* Matches the 'visual weight' of small text */
+    height: 16px;
+}
+
+#entry:unselected {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 2px 5px;
+    margin: 2px 0;
 }
