@@ -57,7 +57,6 @@
     },
     "custom/powermenu": {
         "return-type": "json",
-        "exec": "/home/marco/.config/waybar/modules/powermenu.sh",
         "format": "<span font='Font Awesome 5 Free 9'>{icon}</span>  {}",
         "format-icons": [""],
         "interval": 3600,

@@ -116,16 +116,14 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Aliases
 
-alias vim='/opt/nvim-linux64/bin/nvim'
-alias py_venv_392='source ~/venv/py_392/bin/activate'
-. "$HOME/.cargo/env"
+alias vim=nvim
 alias feh='feh --scale-down'
 alias ls='exa -hla --git'
-alias logseq='~/src/logseq/Logseq-linux-x64-0.10.9.AppImage'
 
 # Environmental variables
 
-export VISUAL=vi
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 
+. "$HOME/.cargo/env"
