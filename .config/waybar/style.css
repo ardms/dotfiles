@@ -22,8 +22,19 @@ window#waybar {
     border-radius: 8px;
 }
 
-#workspaces, #clock, #backlight, #cpu, #memory, #disk, #pulseaudio, #network, #battery, #tray {
+#workspaces {
+    padding-left: 10px; 
+}
+
+#backlight, #cpu, #memory, #disk, #pulseaudio, #network, #battery, #tray {
     padding: 0 10px;
+}
+
+#clock {
+    font-weight: bold;
+    color: #ebdbb2;
+    padding-right: 15px; /* Extra padding since it's at the far edge */
+    margin-right: 5px;
 }
 
 /* Hardware Highlights */
@@ -41,3 +52,17 @@ window#waybar {
 /* Status alerts */
 #battery.warning, #cpu.critical { color: @orange; }
 #battery.critical, #memory.critical { color: @red; }
+
+#workspaces button {
+    padding: 0 5px;
+    color: #a89984; /* Muted gray for inactive numbers */
+}
+
+#workspaces button.focused {
+    color: #8ec07c; /* Aqua for the active workspace to match Sway focus */
+    border-bottom: 2px solid #8ec07c;
+}
+
+#workspaces button.urgent {
+    color: #fb4934; /* Red for urgent notifications */
+}

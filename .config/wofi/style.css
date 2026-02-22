@@ -55,6 +55,11 @@ window {
     margin-right: 10px; /* Space between icon and text */
     width: 16px;        /* Matches the 'visual weight' of small text */
     height: 16px;
+    /* These filters strip color and turn the icons gray */
+    filter: grayscale(100%) brightness(0.8) contrast(1.2);
+    opacity: 0.7; /* Softens them further to blend with the background */
+    
+    transition: all 0.2s ease-in-out;
 }
 
 #entry:unselected {

@@ -6,8 +6,8 @@
     "margin-right": 10,
     "spacing": 10, // Increased spacing for better legibility
 
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [],
     "modules-right": [
         "backlight", 
         "cpu", 
@@ -16,16 +16,28 @@
         "pulseaudio", 
         "network", 
         "battery", 
-        "tray"
+        "tray",
+        "clock"
     ],
 
-    // --- New Hardware Modules ---
+    // --- Left Modules ---
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+
+    // --- Right Modules --- 
 
     "backlight": {
         "device": "intel_backlight",
         "format": "LIT {percent}%",
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-"
     },
 
     "cpu": {
@@ -44,21 +56,30 @@
         "format": "SSD {percentage_used}%"
     },
 
-    // --- Existing Modules ---
     "clock": {
-        "format": "{:%I:%M %p  |  %a, %b %e}"
+        "format": "{:%I:%M %p  |  %a, %b %e}",
+        "on-click": "foot --hold --app-id=calcurse-float sh -c 'calcurse'"
     },
 
     "pulseaudio": {
-        "format": "VOL {volume}%"
+        "format": "VOL {volume}%",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
     "network": {
-        "format-wifi": "WIFI",
-        "format-ethernet": "ETH"
+        "interval": 5,
+        "format-wifi": "WIFI {essid}", // {essid} displays the name of your network
+        "format-ethernet": "ETH {ifname}",
+        "format-disconnected": "OFFLINE",
+        "tooltip-format": "{ifname} via {gwaddr}",
     },
 
     "battery": {
-        "format": "BAT {capacity}%"
+        "format": "BAT {capacity}% ({time})", // {time} is the estimated time remaining
+        "format-charging": "CHR {capacity}%",
+        "format-plugged": "FULL {capacity}%",
+        "format-alt": "BAT {time}",
+        // This defines how the {time} string itself looks
+        "format-time": "{H}h {M}min"
     }
 }
