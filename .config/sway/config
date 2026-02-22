@@ -163,7 +163,7 @@ output * bg ~/Pictures/Wallpaper-01.jpg center
     bindsym $mod+a focus parent
 
     # This will allow calcurse to run on a floating window
-    for_window [app_id="calcurse-float"] floating enable
+    for_window [app_id="calendar-popup"] floating enable, resize set 800 500, move position center
 
 #
 # Scratchpad:

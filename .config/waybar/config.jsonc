@@ -58,7 +58,7 @@
 
     "clock": {
         "format": "{:%I:%M %p  |  %a, %b %e}",
-        "on-click": "foot --hold --app-id=calcurse-float sh -c 'calcurse'"
+        "on-click": "~/.config/calcurse/run_calcurse.sh"
     },
 
     "pulseaudio": {

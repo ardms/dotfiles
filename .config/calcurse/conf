@@ -1,0 +1,41 @@
+# CALCURSE CONFIGURATION
+
+# --- General ---
+general.firstdayofweek=monday
+general.periodicsave=0
+general.confirmquit=no
+general.confirmdelete=yes
+
+# --- Layout ---
+# Layout 2 puts the Agenda on the left and Calendar/Todo on the right
+appearance.layout=2
+appearance.sidebarwidth=30
+appearance.compactpanels=yes
+
+# --- Behavior ---
+appearance.calendarview=monthly
+appearance.defaultpanel=calendar
+appearance.headerline=yes
+appearance.eventseparator=yes
+appearance.dayseparator=yes
+appearance.emptyline=yes
+appearance.emptyday=--
+appearance.notifybar=yes
+appearance.theme=green on default
+appearance.todoview=hide-completed
+appearance.headingpos=right-justified
+daemon.enable=no
+daemon.log=no
+format.inputdate=1
+format.notifydate=%a %F
+format.notifytime=%T
+format.appointmenttime=%H:%M
+format.outputdate=%D
+format.dayheading=%B %e, %Y
+general.autogc=no
+general.autosave=yes
+general.multipledays=yes
+general.systemevents=yes
+notification.command=printf '\a'
+notification.notifyall=flagged-only
+notification.warning=300
