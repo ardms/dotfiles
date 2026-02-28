@@ -40,7 +40,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpaper-01.jpg center
+output * bg ~/Pictures/wallpapers/wp11656631-brazil-movie-wallpapers.png center #458588
 
 ### Key bindings
 

@@ -1,0 +1,18 @@
+[manager]
+cwd = { fg = "#8ec07c" } # Aqua for current directory
+
+[status]
+separator_open  = ""
+separator_close = ""
+# Gruvbox colors for the status bar
+mode_normal = { fg = "#282828", bg = "#a89984", bold = true }
+mode_select = { fg = "#282828", bg = "#8ec07c", bold = true }
+mode_unset  = { fg = "#282828", bg = "#fb4934", bold = true }
+
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#d3869b" }, # Purple for images
+    { mime = "video/*", fg = "#d3869b" },
+    { mime = "audio/*", fg = "#d3869b" },
+    { name = "*.zip",   fg = "#fe8019" }, # Orange for archives
+]

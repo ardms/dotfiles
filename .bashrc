@@ -123,7 +123,7 @@ alias ls='exa -hla --git'
 # Environmental variables
 
 export VISUAL=vim
-export EDITOR="$VISUAL"
+export EDITOR='vim'
 
 
 . "$HOME/.cargo/env"
