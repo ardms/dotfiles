@@ -17,6 +17,7 @@
         "network", 
         "battery", 
         "tray",
+        "sway/language",
         "clock"
     ],
 
@@ -27,9 +28,6 @@
         "format": "{name}",
         "persistent-workspaces": {
             "1": [],
-            "2": [],
-            "3": [],
-            "4": []
         }
     },
 
@@ -72,6 +70,7 @@
         "format-ethernet": "ETH {ifname}",
         "format-disconnected": "OFFLINE",
         "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "nm-connection-editor"
     },
 
     "battery": {
@@ -81,5 +80,9 @@
         "format-alt": "BAT {time}",
         // This defines how the {time} string itself looks
         "format-time": "{H}h {M}min"
+    },
+    "sway/language": {
+    "format": "{}",
+    "min-length": 2
     }
 }
