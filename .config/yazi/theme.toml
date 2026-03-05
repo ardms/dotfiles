@@ -16,3 +16,5 @@ rules = [
     { mime = "audio/*", fg = "#d3869b" },
     { name = "*.zip",   fg = "#fe8019" }, # Orange for archives
 ]
+
+

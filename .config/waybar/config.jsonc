@@ -14,7 +14,6 @@
         "memory", 
         "disk", 
         "pulseaudio", 
-        "network", 
         "battery", 
         "tray",
         "sway/language",
@@ -55,7 +54,7 @@
     },
 
     "clock": {
-        "format": "{:%I:%M %p  |  %a, %b %e}",
+        "format": "{:%H:%M  |  %a %d:%b:%y}",
         "on-click": "~/.config/calcurse/run_calcurse.sh"
     },
 
