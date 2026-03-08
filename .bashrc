@@ -127,3 +127,5 @@ export EDITOR='nvim'
 
 
 . "$HOME/.cargo/env"
+
+. "$HOME/.local/bin/env"

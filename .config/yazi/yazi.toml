@@ -1,3 +1,10 @@
 # yazi.toml
 [mgr]
 show_hidden = true
+
+[open]
+rules = [
+    { mime = "application/pdf", use = ["zathura"] },
+    { mime = "video/*", use = ["mpv"] },
+    { mime = "image/*", use = ["sxiv"] },
+]
