@@ -32,7 +32,6 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show=drun | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
@@ -55,6 +54,9 @@ output * bg ~/Pictures/wallpapers/studi_ghibli_01.jpg fit #458588
 
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start a terminal and run yazi
+    bindsym $mod+y exec $term -e yazi
 
     # Kill focused window
     bindsym $mod+Shift+q kill

@@ -116,9 +116,11 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Aliases
 
-alias vim=nvim
+alias vim=~/bin/nvim/bin/nvim
 alias feh='feh --scale-down'
 alias ls='exa -hla --git'
+alias spp='source .venv/bin/activate'
+
 
 # Environmental variables
 

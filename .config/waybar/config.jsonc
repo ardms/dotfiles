@@ -60,6 +60,7 @@
 
     "pulseaudio": {
         "format": "VOL {volume}%",
+        "format-muted": "VOL x",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
